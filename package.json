@@ -1,0 +1,44 @@
+{
+  "name": "mcp-server-template",
+  "version": "0.1.0",
+  "author": "",
+  "license": "MIT",
+  "description": "Mcp Server Template",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/index.js",
+    "watch": "tsc --watch",
+    "dev": "tsx --watch src/sse.ts",
+    "start": "node dist/index.js",
+    "start:sse": "node dist/sse.js",
+    "start:streamableHttp": "node dist/streamableHttp.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "~1.10.2",
+    "express": "~5.1.0",
+    "zod": "~3.24.3"
+  },
+  "devDependencies": {
+    "@types/express": "~5.0.1",
+    "@types/node": "~22.13.10",
+    "@vercel/nft": "~0.29.2",
+    "fs-extra": "~11.3.0",
+    "shx": "~0.3.4",
+    "tsx": "^4.19.3",
+    "typescript": "~5.8.2"
+  },
+  "bin": {
+    "mcp-server-template": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "mcp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  }
+}
