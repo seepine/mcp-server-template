@@ -9,4 +9,5 @@ RUN node docker/minify.js
 FROM seepine/alpine:node-3.21.3
 WORKDIR /work
 COPY --from=builder /work/dist /work
-ENTRYPOINT ["node", "sse.js"]
+# default start streamableHttp server
+CMD ["node", "streamableHttp.js"]

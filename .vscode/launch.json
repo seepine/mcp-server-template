@@ -5,14 +5,18 @@
       "type": "node",
       "request": "launch",
       "name": "Debug MCP Server",
-      "skipFiles": ["<node_internals>/**"],
-      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ],
       "runtimeExecutable": "npx",
       "runtimeArgs": [
         "-y",
         "@modelcontextprotocol/inspector",
         "node",
-        "dist/index.js"
+        "dist/stdio.js"
       ],
       "console": "integratedTerminal",
       "preLaunchTask": "npm: watch",
