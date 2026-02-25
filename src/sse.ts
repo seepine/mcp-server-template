@@ -42,7 +42,7 @@ export function startSSEServer(
   // Basic info endpoint
   app.get(infoPath, (req: Request, res: Response) => {
     res.json({
-      name: 'MCP Fetch Server',
+      name: 'MCP Server',
       version: '0.1.0',
       transport: 'SSE',
       endpoints: {
@@ -55,7 +55,7 @@ export function startSSEServer(
 
   // Start the server
   const httpServer = app.listen(port, () => {
-    console.info(`MCP Fetch server listening on port ${port}`)
+    console.info(`MCP server listening on port ${port}`)
     console.info(`URI prefix: ${normalizedPrefix || '/'} (root)`)
     console.info(`SSE endpoint: http://localhost:${port}${ssePath}`)
     console.info(`Message endpoint: http://localhost:${port}${messagePath}`)
