@@ -1,0 +1,38 @@
+# 镜像仓库配置
+#   变量 DOCKER_REGISTRY,DOCKER_USERNAME
+#   密钥 DOCKER_PASSWORD
+
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release-docker:
+    runs-on: ubuntu-latest
+    if: ${{ vars.DOCKER_REGISTRY != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Docker
+        uses: seepine/action-setup-docker@v1
+        id: meta
+        with:
+          registry: ${{ vars.DOCKER_REGISTRY }}
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+
+      - name: Success
+        run: echo "Release ${{ steps.meta.outputs.tags }} success"

@@ -8,22 +8,21 @@
 pnpm install
 ```
 
-### 2. Watch files
+### 2. Start sse server
 
 ```bash
-pnpm watch
+pnpm dev
 ```
 
-### 3. Run any of the following scripts
+### 3. Start mcp inspector
 
 ```bash
-pnpm start:streamableHttp
-pnpm start:sse
+pnpm debug
 ```
 
-### 4. Start Debug
+### 4. Test
 
-Use vscode debug to start the `@modelcontextprotocol/inspector`
+test your mcp server in chrome of inspector
 
 ## Deploy stdio
 
