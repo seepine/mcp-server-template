@@ -1,4 +1,4 @@
-FROM alpine:3.23.3 as base
+FROM alpine:3.23.3 AS base
 RUN apk add --no-cache nodejs npm
 
 FROM base AS builder
