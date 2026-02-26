@@ -9,7 +9,8 @@
   "scripts": {
     "build": "tsc && shx chmod +x dist/stdio.js",
     "watch": "tsc --watch",
-    "dev": "tsx --watch src/sse.ts",
+    "debug": "npx -y @modelcontextprotocol/inspector node dist/stdio.js",
+    "dev": "tsx --watch src/streamableHttp.ts",
     "start": "node dist/stdio.js",
     "start:sse": "node dist/sse.js",
     "start:streamableHttp": "node dist/streamableHttp.js",
