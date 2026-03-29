@@ -26,6 +26,9 @@ jobs:
           version: 10
           cache: true
 
+      - name: Install
+        run: pnpm install
+
       - name: Check Formet
         run: pnpm format
 
