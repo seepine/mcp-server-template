@@ -1,8 +1,5 @@
-# mcp-server-template
+# AGENTS.md
 
-## 说明
+This file provides guidance to AI Coding when working with code in this repository.
 
-- 使用 pnpm，而不是 npm 或 yarn
-- 安装依赖：`pnpm install`
-- 格式化代码：`pnpm format`
-- 构建：`pnpm build`
+The content has been moved to `./CLAUDE.md`, please refer to `./CLAUDE.md`.
