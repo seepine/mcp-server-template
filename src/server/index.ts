@@ -1,10 +1,12 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { registerTools } from './tools/index.js'
+import pkg from '../../package.json'
 
 export function createServer(): McpServer {
   const server = new McpServer({
-    name: 'Weather MCP Server',
-    version: '0.1.0',
+    name: pkg.name,
+    version: pkg.version,
+    description: pkg.description,
   })
 
   // 注册工具

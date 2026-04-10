@@ -2,6 +2,7 @@ import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js'
 import express, { Request, Response } from 'express'
 import { createServer } from './server/index.js'
 import { ctx } from './server/context.js'
+import pkg from '../package.json'
 
 /**
  * Creates and starts an Express server that provides SSE transport for the MCP Fetch server
@@ -50,8 +51,9 @@ export function startSSEServer(
   // Basic info endpoint
   app.get(infoPath, (req: Request, res: Response) => {
     res.json({
-      name: 'MCP Server',
-      version: '0.1.0',
+      name: pkg.name,
+      version: pkg.version,
+      description: pkg.description,
       transport: 'SSE',
       endpoints: {
         sse: ssePath,
