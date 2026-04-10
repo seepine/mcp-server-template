@@ -5,16 +5,15 @@ import { createServer } from '@/server'
 import { ctx } from '@/server/context'
 
 async function main() {
-  await ctx.run(
-    {
-      headers: {},
+  // stdio 模式下填充默认上下文，因为一般从 env 传值
+  ctx.setDefaultContext({
+    headers: {
+      custom: '123',
     },
-    async () => {
-      const server: McpServer = createServer()
-      const transport = new StdioServerTransport()
-      await server.connect(transport)
-    },
-  )
+  })
+  const server: McpServer = createServer()
+  const transport = new StdioServerTransport()
+  await server.connect(transport)
 }
 
 main().catch((error) => {
